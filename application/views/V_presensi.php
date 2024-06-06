@@ -18,7 +18,7 @@
   </div>
   <div class="card-body">
     <div class="table-responsive">
-      <table class="table table-bordered table-sm table-hover" id="dataTable" width="100%" cellspacing="0">
+      <table class="table table-bordered table-sm table-hover nowrap" id="dataTable" width="100%" cellspacing="0">
         <thead>
           <tr>
             <th width="5%">No</th>

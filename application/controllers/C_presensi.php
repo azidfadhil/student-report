@@ -22,11 +22,11 @@ class C_presensi extends CI_Controller {
     $this->load->view('templates/V_topbar', $data);
     if ($_SESSION['role'] == 'admin') {
       $data['presensi'] = $this->M_presensi->getAllPresensiAdmin();
-      $this->load->view('admin/V_presensi', $data);
+      $this->load->view('V_presensi', $data);
     } else {
       $nama_mt = $_SESSION['name'];
       $data['presensi'] = $this->M_presensi->getAllPresensiMT($nama_mt);
-      $this->load->view('mt/V_presensi', $data);
+      $this->load->view('V_presensi', $data);
     }
     $this->load->view('templates/V_footer', $data);
   }

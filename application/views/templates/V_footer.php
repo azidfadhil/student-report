@@ -29,6 +29,57 @@
     </div>
   </div>
 
+  <!-- Tambah Multiple User Modal -->
+  <div class="modal fade" id="tambahMultipleUserModal" tabindex="-1" role="dialog" aria-labelledby="tambahMultipleUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="tambahMultipleUserModalLabel">Tambah Multiple User</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="" method="post" id="formInputMultipleUser" enctype="multipart/form-data">
+            <div class="form-row">
+              <div class="col">
+                <label for="inputMultipleUser"></label>
+              </div>
+            </div>
+          </form>
+
+          <form id="formInputMultipleUser" enctype="multipart/form-data">
+            <div class="form-row">
+              <div class="col">
+                <label for="inputMultipleUser">Upload Excel</label>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="inputMultipleUser" name="excel_user" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" required>
+                  <label style="white-space: nowrap" class="custom-file-label" id="placeholderUser"><i>Pilih file excel ...</i></label>
+                </div>
+              </div>
+            </div>
+            <input type="button" class="btn btn-primary mt-3" id="btnSubmitTambahMultipleUser" value="Upload"></input>
+          </form>
+
+          <table class="table table-sm table-hover mt-4">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Nama Lengkap</th>
+                <th>Email</th>
+                <th>No. HP</th>
+              </tr>
+            </thead>
+          </table>
+
+        </div>
+        <div class="modal-footer">
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <!-- Tambah User Modal -->
   <div class="modal fade" id="tambahUserModal" tabindex="-1" role="dialog" aria-labelledby="tambahUserModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">

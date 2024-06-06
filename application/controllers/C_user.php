@@ -20,6 +20,16 @@ class C_user extends CI_Controller {
     $this->load->view('templates/V_footer');
   }
 
+  public function multipleUser() {
+
+    $files = $_FILES['excel_user'];
+
+    echo "<pre>";
+    print_r($files['name']);
+    die();
+
+  }
+
   public function tambah() {
     $user = $this->M_user;
     $validation = $this->form_validation;
@@ -69,11 +79,22 @@ class C_user extends CI_Controller {
 
   public function hapus($id) {
     if (!isset($id)) show_404();
-    if ($this->M_user->delete($id)) {
-      $this->session->set_flashdata('icon', 'success');
-      $this->session->set_flashdata('title', 'Success!');
-      $this->session->set_flashdata('text', 'User berhasil dihapus');
+
+    $get_data = $this->M_user->getById($id);
+
+    if (strpos(strtolower($get_data->name), 'admin') !== false) {
+      $this->session->set_flashdata('icon', 'error');
+      $this->session->set_flashdata('title', 'Error!');
+      $this->session->set_flashdata('text', 'User Admin tidak bisa dihapus');
       redirect('data-user');
+    } else {
+      if ($this->M_user->delete($id)) {
+        $this->session->set_flashdata('icon', 'success');
+        $this->session->set_flashdata('title', 'Success!');
+        $this->session->set_flashdata('text', 'User berhasil dihapus');
+        redirect('data-user');
+      }
     }
+
   }
 }

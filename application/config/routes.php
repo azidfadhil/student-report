@@ -57,6 +57,7 @@ $route['auth'] = 'C_auth';
 $route['auth/(:any)'] = 'C_auth/$1';
 
 $route['dashboard'] = 'C_dashboard';
+$route['dashboard/(:any)'] = 'C_dashboard/$1';
 
 $route['data-user'] = 'C_user';
 $route['data-user/(:any)'] = 'C_user/$1';

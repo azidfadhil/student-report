@@ -54,7 +54,18 @@
     e.preventDefault();
   });
 
-  // ============================================== My Custom Script ============================================== //
+  // ========================================== My Custom Script ========================================== //
+  
+  // ====================== Input Multiple User ====================== //
+  var placeholderUser = $('#placeholderUser').text()
+  $('#inputMultipleUser').on('change', function(e) {
+    if ($(this).val()) {
+      var filename = $(this).val().replace('C:\\fakepath\\', "")
+      $(this).next('#placeholderUser').html(filename)      
+    } else {
+      $(this).next('#placeholderUser').html(placeholderUser)
+    }
+  })
   
   // ==================== Checkbox show password ==================== //
   $(document).on('change', '#showPassword', function() {
@@ -72,31 +83,31 @@
     }
   })
   
-  // ==================== Modal delete user ==================== //
+  // ====================== Modal delete user ====================== //
   $(document).on('click', '#btnDeleteUser', function() {
     var id = $(this).data('id')
     $('#btnDeleteUserModal').attr('href', base_url + 'data-user/hapus/' + id)
   })
 
-  // ==================== Select2 Input MT ==================== //
+  // ======================= Select2 Input MT ======================= //
   $('#inputMasterTrainer').select2({
     placeholder: "Pilih MT",
     width: 'resolve',
   })
   
-  // ==================== Custom file browser ==================== //
+  // ===================== Custom file browser ===================== //
   $(document).on('change', '#inputFilePresensi', function() {
     var filename = $(this).val().replace('C:\\fakepath\\', "")
     $(this).next('.custom-file-label').html(filename)
   })
   
-  // ==================== Select2 Input MT ==================== //
+  // ======================= Select2 Input MT ======================= //
   $('#inputEditMasterTrainer').select2({
     placeholder: "Pilih MT",
     width: 'resolve',
   })  
 
-  // ==================== Tooltips Lihat MT ==================== //
+  // ====================== Tooltips Lihat MT ====================== //
   $(function () {
     $('[data-toggle="tooltip"]').tooltip()
   })
@@ -107,7 +118,7 @@
     $('#btnDeletePresensiModal').attr('href', base_url + 'data-presensi/hapus/' + id)
   }) 
 
-  // ==================== Cek file presensi dirubah atau tidak ==================== //
+  // ============= Cek file presensi dirubah atau tidak ============= //
   var placeholder = $('#placeholderFile').text()
   $(document).on('change', '#inputEditFilePresensi', function() {
     var file_presensi_change = $(this).val()

@@ -58,4 +58,15 @@ class C_dashboard extends CI_Controller {
     }
     $this->load->view('templates/V_footer');
   }
+
+  public function dataDashboard() {
+    $nama_mt = $_SESSION['name'];
+    if (strpos(strtolower($nama_mt), 'admin') !== false) {
+      $result = $this->M_dashboard->getAllDataSiswaPerBulan()->result();
+    } else {
+      $result = $this->M_dashboard->getDataSiswaPerBulan($nama_mt)->result();
+    }
+    
+    echo json_encode($result);
+  }
 }
